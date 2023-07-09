@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   get '/about' => 'public/homes#about'
   get '/customers/my_page' => 'public/customers#show'
+  get '/customers/infomation/edit' => 'public/customers#edit'
+
+  scope module: :public do
+    resources :orders, only: [:new, :index, :show]
+  end
+
 
   # 管理者用
   # URL /admin/sign_in...
