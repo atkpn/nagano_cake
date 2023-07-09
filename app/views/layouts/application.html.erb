@@ -41,7 +41,7 @@
               <!--ユーザーサインイン後-->
               <% elsif customer_signed_in? %>
               <li class="nav-item">
-                <a class="nav-link" href="#">マイページ</a>
+                <%= link_to "マイページ", customers_my_page_path %>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">商品一覧</a>
@@ -56,16 +56,16 @@
               <!--サインイン前-->
               <% else %>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <%= link_to "About", about_path %>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">商品一覧</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">新規登録</a>
+                <%= link_to "新規登録", new_customer_registration_path %>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">ログイン</a>
+                <%= link_to "ログイン", new_customer_session_path %>
               </li>
               <% end %>
             </ul>
