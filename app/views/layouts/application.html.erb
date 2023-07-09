@@ -23,10 +23,25 @@
 
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-              <!--サインイン後-->
+              <!--管理者サインイン後-->
               <% if admin_signed_in? %>
               <li class="nav-item">
-                <a class="nav-link" href="#">マイページ<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">商品一覧</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">会員一覧</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">注文履歴一覧</a>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+              </li>
+
+              <!--ユーザーサインイン後-->
+              <% elsif customer_signed_in? %>
+              <li class="nav-item">
+                <a class="nav-link" href="#">マイページ</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">商品一覧</a>
@@ -35,7 +50,7 @@
                 <a class="nav-link" href="#">カート</a>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
               </li>
 
               <!--サインイン前-->
