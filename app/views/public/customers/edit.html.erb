@@ -1,1 +1,50 @@
-ユーザー登録情報編集画面
+<div class="container">
+  <h4 class="my-5 mx-auto bg-light">会員情報編集</h4>
+  <div class="row">
+    <%= form_with model: @customer, url: customers_infomation_path do |f| %>
+      <div class="field">
+        <%= f.label :"名前" %><br>
+        <%= f.text_field :last_name %>
+        <%= f.text_field :first_name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :"フリガナ" %><br>
+        <%= f.text_field :last_name_kana %>
+        <%= f.text_field :first_name_kana %>
+      </div>
+
+      <div class="field">
+        <%= f.label :"郵便番号（ハイフンなし）" %><br>
+        <%= f.text_field :postal_code %>
+      </div>
+
+      <div class="field">
+        <%= f.label :"住所" %><br>
+        <%= f.text_field :address %>
+      </div>
+
+      <div class="field">
+        <%= f.label :"電話番号（ハイフンなし）" %><br>
+        <%= f.text_field :telephone_number %>
+      </div>
+
+      <div class="field">
+        <%= f.label :"メールアドレス"%><br />
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "編集内容を保存", class: "btn btn-success mt-3" %>
+      </div>
+
+      <div class="actions">
+        <%= link_to "退会する", customers_current_customer_unsubscribe_path, class: "btn btn-danger mt-3" %>
+      </div>
+
+    <% end %>
+
+
+
+  </div>
+</div>
