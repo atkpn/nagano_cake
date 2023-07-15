@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get '/customers/my_page' => 'public/customers#show'
   get '/customers/infomation/edit' => 'public/customers#edit'
   patch '/customers/infomation' => 'public/customers#update'
-  get '/customers/current_customer/unsubscribe' => 'public/customers#unsubscribe'
+  get '/customers/current_customer/unsubscribe' => 'public/customers#unsubscribe', as: 'unsubscribe'
+  patch '/customers/withdraw' => 'public/customers#withdraw', as: 'withdraw'
 
   scope module: :public do
     resources :orders, only: [:new, :index, :show]

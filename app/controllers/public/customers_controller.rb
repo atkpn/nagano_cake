@@ -11,8 +11,15 @@ class Public::CustomersController < ApplicationController
     @customer.update(customer_params)
     redirect_to customers_my_page_path(current_customer.id)
   end
-  
+
   def unsubscribe
+  end
+
+  def withdraw
+    @customer = current_customer
+    @customer.update(is_deleted: true)
+    flash[:withdraw] = "退会処理を実行しました。"
+    redirect_to unsubscribe_path
   end
 
   private
