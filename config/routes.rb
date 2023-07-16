@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   patch '/customers/withdraw' => 'public/customers#withdraw', as: 'withdraw'
 
   scope module: :public do
+    resources :items, only: [:index, :show]
     resources :orders, only: [:new, :index, :show]
   end
 
