@@ -1,5 +1,3 @@
-<h1>トップページ</h1>
-
 <div class="container">
   <div class="row">
     <p class="mx-auto">
@@ -12,26 +10,18 @@
 
   <h2>新着商品</h2>
   <div class="row">
-    <div class="col-md-3 ">
-      image
-      <p>商品名</p>
-      <p>¥0,000</p>
-    </div>
-    <div class="col-md-3">
-      image
-      <p>商品名</p>
-      <p>¥0,000</p>
-    </div>
-    <div class="col-md-3">
-      image
-      <p>商品名</p>
-      <p>¥0,000</p>
-    </div>
-    <div class="col-md-3">
-      image
-      <p>商品名</p>
-      <p>¥0,000</p>
+    <% @items.each do |item| %>
+      <div class="col-md-3">
+        <%= link_to item_path(item.id) do %>
+          <%= image_tag item.get_image(100, 200) %>
+        <% end %><br>
+        <%= item.name %><br>
+        ¥<%= item.add_tax_price.to_s(:delimited) %>
+      </div>
+    <% end %>
+    <div class="ml-auto">
+      <%= link_to "全ての商品を見る >", items_path %>
     </div>
   </div>
-  <a href="#" class="float-right">全ての商品を見る ></a>
+
 </div>
