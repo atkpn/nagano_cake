@@ -1,2 +1,48 @@
-<h1>カート内一覧</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<div class="container">
+  <h4 class="my-5 mx-auto bg-light">ショッピングカート</h4>
+  <a href="#" class="btn btn-danger">カートを空にする</a>
+  <div class="row">
+    <table class="table table-bordered">
+      <thead class="table-secondary">
+        <th scope="col">商品名</th>
+        <th scope="col">単価(税込)</th>
+        <th scope="col">数量</th>
+        <th scope="col">小計</th>
+        <th scope="col"></th>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td>
+                <%= image_tag cart_item.item.get_image(100, 200) %>
+                <%= cart_item.item.name %>
+                </td>
+              <td><%= cart_item.item.add_tax_price %></td>
+              <td>数量</td>
+              <td><%= cart_item.subtotal %></td>
+              <td><a href="#" class="btn btn-danger">削除する</a></td>
+            <% @total += cart_item.subtotal %>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <a class="btn btn-primary">買い物を続ける</a>
+    </div>
+    <div class="col-md-6">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td scope="row" class="table-secondary">合計金額</th>
+            <td><%= @total %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
