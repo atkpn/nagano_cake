@@ -5,6 +5,7 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @cart_item = CartItem.new # 新規登録の時は.new,編集の時は.find
   end
 
 end
