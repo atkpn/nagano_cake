@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :items, only: [:index, :show]
-    resources :orders, only: [:new, :index, :show]
+    resources :orders, only: [:new, :index, :show, :create]
+    get '/orders/confirm' => 'order#confirm'
+    get '/orders/thanks' => 'order#thanks'
     resources :cart_items, only: [:index, :update, :destroy, :create]
   end
 
