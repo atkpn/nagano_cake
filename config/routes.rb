@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'orders/show'
+  end
   # 顧客用
   # URL /customers/sign_in...
   devise_for :customers, skip: [:passwords], controllers: {
@@ -36,6 +39,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :items, except:[:destroy]
     resources :customers, only:[:index, :show, :edit, :update]
+    resources :orders, only:[:show]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

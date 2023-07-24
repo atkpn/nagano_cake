@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   enum payment_method: {
-    credit: 1, #クレジットカード
-    bank: 2, #銀行振込
+    credit: 0, #クレジットカード
+    bank: 1, #銀行振込
   }
 end
