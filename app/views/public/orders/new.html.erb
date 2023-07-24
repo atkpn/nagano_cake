@@ -1,1 +1,16 @@
-注文情報入力画面
+<div class="container">
+  <h4 class="my-5 mx-auto bg-light">注文情報入力</h4>
+  <div class="row">
+    <%= form_with model: @order, url: new_order_path do |f| %>
+      <p><strong>支払い方法</strong></p>
+      <%= f.radio_button :payment_method, Order.payment_methods.key(0), class: "ml-5" %>
+      <%= f.label :payment_method_credit, Order.payment_methods_i18n[:credit] %><br>
+      <%= f.radio_button :payment_method, Order.payment_methods.key(1), class: "ml-5" %>
+      <%= f.label :payment_method_bank, Order.payment_methods_i18n[:bank] %>
+
+      <p><strong>お届け先</strong></p>
+
+      <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
