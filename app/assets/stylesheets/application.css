@@ -13,7 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
- .button_custom {
-   text-align: center;
- }

@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   has_one_attached :image
   
   has_many :cart_items, dependent: :destroy
+  has_many :order_items, dependent: :destroy #中間テーブル
+  has_many :orders, through: :order_items
 
   def get_image(width, height)
     unless image.attached?
