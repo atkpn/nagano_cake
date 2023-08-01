@@ -11,24 +11,19 @@
           </tr>
         </thead>
         <tbody>
-          <!--< @orders.each do |order| %>-->
+          <% @orders.each do |order| %>
           <tr>
-            <!--<td>< link_to order.created_at, admin_orders_show_path(order.id) %></td>-->
-            <!--<td>< order.customer_id.customer_name %></td>-->
-            <!--<td>< order. %></td>-->
-      <!--      <td>-->
-      <!--        < if customer.is_deleted == false %>-->
-      <!--          <p class="text-success">有効</p>-->
-      <!--        < else %>-->
-      <!--          <p class="text-muted">退会</p>-->
-      <!--        < end %>-->
-      <!--      </td>-->
-      <!--    </tr>-->
-      <!--    < end %>-->
-      <!--  </tbody>-->
-      <!--</table>-->
-      <!--<div class="mx-auto">-->
-      <!--  <= paginate @customers %>-->
+            <td><%= link_to order.created_at.strftime('%Y/%-m/%-d %H:%M:%S'), admin_order_path(order.id) %></td>
+            <td>
+              <%= order.customer.last_name + order.customer.first_name %>
+            </td>
+            <td><%= order.amount_total %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="mx-auto">
+        <%= paginate @orders %>
       </div>
     </div>
   </div>
