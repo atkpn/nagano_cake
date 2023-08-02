@@ -1,7 +1,10 @@
 <div class="container">
-  <h4 class="my-5 mx-auto bg-light">
-    <%= @customer.last_name + @customer.first_name + "さんの会員詳細"%>
-  </h4>
+  <div class="row">
+    <h4 class="my-5 bg-light d-inline">
+      <%= @customer.last_name + @customer.first_name + "さんの会員詳細"%>
+    </h4>
+  </div>
+
   <div class="row">
     <div>
       <table class="table table-borderless">
