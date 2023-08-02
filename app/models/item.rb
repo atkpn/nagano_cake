@@ -16,4 +16,8 @@ class Item < ApplicationRecord
   def add_tax_price # 税込価格
     (price * 1.1).floor
   end
+  
+  # def count #全件
+  #   Item.count
+  # end
 end
